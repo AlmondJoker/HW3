@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Calculation Form</title>
+    <meta charset="utf-8"/>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+  </head>
+
+  <body>
+	  <div>
+      <form id="form1" name="form1" action="#" method="get" target="_self">
+  		  <h2>--Math computation Form--</h2>
+  		  <h5> Computing some value from taking in user inputs.</h5>
+  		  <!-- <hr/> -->
+        <div>
+          <p> Task 1: Finding the Force using the Law of Motion</p>
+          <label> Enter Mass: </label> <input type="text" id="mass" name="mass" placeholder="In Grams" autofocus="autofocus"/><br>
+          <label> Enter Acceleration </label> <input type="text" id="acc" name="acc" placeholder="M/S^2"/>
+        </div>
+		    <input type="button" id="submit" value="Compute" onclick="force();">
+	    </form>
+      <hr/>
+
+      <form id="form2" name="form2" action="#" method="get" target="_self">
+        <div>
+          <p> Tsak 2: Finding the Displacement </p>
+          <label>enter Initial Velocity </label>
+          <input type="text" id="IV" name="IV" placeholder="M/S^2"/> <br>
+          <label>Time</label>
+          <input type="text" id="Time" placeholder="In Seconds"/> <br>
+          <label> Acceleration</label>
+          <input type="text" id="A" placeholder="M/S^2"/><br>
+        </div>
+        <input type="button" id="ComputeTask2" value="Compute Velocity" onclick="disp();"/>
+        <hr/>
+      </form>
+      <form id="form3" name="form3" action="#" method="get" target="_self">
+        <div>
+          <p> Task 3: Quadratic Equation f(x) = (-b +/- sqrt(-b^2 – 4ac) / (2a)</p>
+          <label> Value of "a" </label> <input id="a" type="text" placeholder="Value of A"/> <br>
+          <label> Value of "b" </label> <input id="b" type="text" placeholder="Value of B"/> <br>
+          <label> Value of "c" </label> <input id="c" type="text" placeholder="Value of C"/> <br>
+          <input type="button" id="ComputeTask3" value="Compute"/>
+        </div>
+        <hr/>
+      </form>
+      <form id="form4" name="form4" action="#" method="get" target="_self">
+        <div>
+          <p> Task 4: Finance</p>
+          <label> Present Value of an Annuity Stream </label>
+          <input type="text" size="21" id="P" placeholder="Value of Annuity Stream"/> <br>
+          <label> Dollar amoint of each annuity payment </label>
+          <input type="text" id="PMT" placeholder="PMT"/><br>
+          <label> Intereset Rate </label>
+          <input type="text" id="r" placeholder="Discount Rate" /><br>
+          <label> Number of Periods in which payments will be made</label>
+          <input type="text" id="N" placeholder="Number of Periods"/><br>
+          <input type="button" name="ComputeTask4" value="Compute">
+        </div>
+      </form>
+	</div>
+
+
+<p id="force"> </p>
+<p id="disp"> </p>
+
+  <script>
+  function force() {
+      // code
+      let m = document.getElementById('mass').value;
+      let a = document.getElementById('acc').value;
+      let mass = parseFloat(m);
+      let acceleration = parseFloat(a);
+      let force1 = mass * acceleration;
+      document.getElementById('force').innerHTML = "Force is: " + force1.toString() + "N";
+  }
+  function disp() {
+      // D =vi*t – (1/2) a*t^2
+    let vi = document.getElementById('IV').value;
+    let ti = document.getElementById('Time').value;
+    let accel = document.getElementById('A').value;
+    let iv = parseFloat(vi);
+    let t = parseFloat(ti);
+    let acc = parseFloat(accel);
+    let math = (iv * (t - (1/2)) * (acc(t*t)));
+    document.getElementById('disp').innerHTML = "Displacement is:" + math.toString();
+  }
+  </script>
+  </body>
+  </html>

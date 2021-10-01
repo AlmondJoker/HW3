@@ -1,0 +1,18 @@
+h2{
+  text-align: center;
+}
+h5{
+  text-align: center;
+}
+body{
+  /* background-color: gray; */
+  /* text-align: center;
+  font-style: italic;
+  font-family: cursive; */
+  font-style: oblique;
+}
+input{
+  font-style: oblique;
+  font-size-adjust: auto;
+  text-align: center;
+}
