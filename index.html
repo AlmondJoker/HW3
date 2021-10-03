@@ -38,10 +38,10 @@
       <form id="form3" name="form3" action="#" method="get" target="_self">
         <div>
           <p> Task 3: Quadratic Equation f(x) = (-b +/- sqrt(-b^2 – 4ac) / (2a)</p>
-          <label> Value of "a" </label> <input id="a" type="text" placeholder="Value of A"/> <br>
-          <label> Value of "b" </label> <input id="b" type="text" placeholder="Value of B"/> <br>
-          <label> Value of "c" </label> <input id="c" type="text" placeholder="Value of C"/> <br>
-          <input type="button" id="ComputeTask3" value="Compute"/>
+          <label> Value of "a" </label> <input type="text" id="a" placeholder="Value of A"/> <br>
+          <label> Value of "b" </label> <input type="text" id="b" placeholder="Value of B"/> <br>
+          <label> Value of "c" </label> <input type="text" id="c" placeholder="Value of C"/> <br>
+          <input type="button" id="ComputeTask3" value="Compute" onclick="quad();"/>
         </div>
         <hr/>
       </form>
@@ -53,17 +53,19 @@
           <label> Dollar amoint of each annuity payment </label>
           <input type="text" id="PMT" placeholder="PMT"/><br>
           <label> Intereset Rate </label>
-          <input type="text" id="r" placeholder="Discount Rate" /><br>
+          <input type="text" id="r" placeholder="Discount Rate"/><br>
           <label> Number of Periods in which payments will be made</label>
           <input type="text" id="N" placeholder="Number of Periods"/><br>
-          <input type="button" name="ComputeTask4" value="Compute">
+          <input type="button" name="ComputeTask4" value="Compute" onclick="four();"/>
         </div>
       </form>
 	</div>
 
 
-<p id="force"> </p>
-<p id="disp"> </p>
+  <p id = "force"> </p>
+  <p id = "disp"> </p>
+  <p id = "quad"> </p>
+  <p id = "four"> </p>
 
   <script>
   function force() {
@@ -83,8 +85,40 @@
     let iv = parseFloat(vi);
     let t = parseFloat(ti);
     let acc = parseFloat(accel);
-    let math = (iv * (t - (1/2)) * (acc(t*t)));
-    document.getElementById('disp').innerHTML = "Displacement is:" + math.toString();
+
+    let op = (iv * t) - (0.5 * acc) * (t*t);
+    document.getElementById('disp').innerHTML = "Displacement is:" + op.toString();
+  }
+  function quad() {
+    let first = document.getElementById('a').value;
+    let second = document.getElementById('b').value;
+    let third = document.getElementById('c').value;
+    let a = parseInt(first);
+    let b = parseInt(second);
+    let c = parseInt(third);
+    let b2 = Math.pow(b, 2);
+    let squareRoot = Math.sqrt(b2 - (4 * a * c));
+    let twoA = a * 2;
+    let answerOne = ((-b + squareRoot) / twoA);
+    let answerTwo = ((-b - squareRoot) / twoA);
+    document.getElementById('quad').innerHTML = "Possible outputs: " + answerOne + " or " + answerTwo;
+  }
+  function four() {
+    let p = document.getElementById('P').value;
+    let pmt = document.getElementById('PMT').value;
+    let ir = document.getElementById('r').value;
+    let n = document.getElementById('N').value;
+
+    let p1 = parseFloat(p);
+    let pmt1 = parseFloat(pmt);
+    let ir1 = parseFloat(ir);
+    let n1 = parseFloat(n);
+
+    let onePlusIR = ir1 + 1;
+    let onePlusIRtoNth = Math.pow(onePlusIR, n1);
+    let part = (1 / onePlusIRtoNth);
+    let answer = ((1 - part) / ir1);
+    document.getElementById('four').innerHTML = "The answer is: " + answer.toString();
   }
   </script>
   </body>
